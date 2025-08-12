@@ -217,10 +217,12 @@
   <div class="montes"></div>
   <div class="rio"></div>
 
-  <div class="controls">
-    <button id="prev" class="btn alt">◀︎</button>
-    <button id="next" class="btn">Próxima</button>
-  </div>
+<div class="controls">
+  <button id="prev" class="btn alt">◀︎</button>
+  <button id="pause" class="btn alt">Pausar</button>
+  <button id="next" class="btn">Próxima</button>
+</div>
+
   <div class="hint">Toque na tela ou use os botões</div>
 
 <script>
@@ -254,12 +256,33 @@ function type(text, i=0){
   }else{
     typing = false;
     quoteEl.classList.remove("type");
-    hold = setTimeout(next, 3800);
+    if(!paused){ // só troca se não estiver pausado
+      hold = setTimeout(next, 3800);
+    }
   }
 }
+
 function next(){ clearTimeout(hold); idx = (idx+1)%frases.length; type(frases[idx]); }
 function prev(){ clearTimeout(hold); idx = (idx-1+frases.length)%frases.length; type(frases[idx]); }
 type(frases[idx]);
+
+let paused = false; // estado inicial
+
+function togglePause(){
+  paused = !paused;
+  const btn = document.getElementById("pause");
+  btn.textContent = paused ? "Retomar" : "Pausar";
+
+  if(paused){
+    clearTimeout(hold); // cancela troca automática
+  } else {
+    // retoma — espera 3,8s antes de mudar
+    hold = setTimeout(next, 3800);
+  }
+}
+
+document.getElementById("pause").addEventListener("click", togglePause);
+
 
 document.getElementById("next").addEventListener("click", ()=>{ if(!typing) next(); });
 document.getElementById("prev").addEventListener("click", ()=>{ if(!typing) prev(); });
