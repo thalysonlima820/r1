@@ -2,332 +2,325 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Disparos de Amor</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<title>Capítulo 2 — Para Ela</title>
 <style>
   :root{
-    --bg1:#120824;
-    --bg2:#2a0f4d;
-    --accent:#ff5a8a;
-    --accent2:#ffd1e0;
-    --text:#fff7fe;
+    --rosa: #ff6fa6;
+    --rosa-2:#ff4f92;
+    --rosa-3:#ffd2e4;
+    --escuro:#0f0a1a;
+    --texto:#fff7fb;
+    --vermelho:#e11d48; /* lírios */
+    --vermelho-2:#fb7185;
+    --dourado:#ffd166;
+    --azul:#1c2a67;
   }
-  *{box-sizing:border-box}
-  html,body{height:100%;margin:0;overflow:hidden;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif}
-  body{
-    background: radial-gradient(1200px 600px at 50% 130%, #1a0a32 0%, var(--bg1) 40%, #0b0617 100%),
-                radial-gradient(1000px 400px at 50% -10%, rgba(255,255,255,.06), rgba(255,255,255,0) 60%);
-    color:var(--text);
-  }
+  *{box-sizing:border-box; -webkit-tap-highlight-color:transparent}
+  html,body{height:100%; margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; color:var(--texto); background:linear-gradient(180deg,#2b1542,#1b1033 45%,#0e0a1d)}
+  body{overflow:hidden}
 
-  /* Estrelas parallax simples */
-  .stars, .stars:before, .stars:after{
+  /* CENÁRIO PRAIA RJ (silhueta simples) */
+  .sky{
+    position:absolute; inset:0;
+    background:
+      radial-gradient(800px 280px at 50% -40px, rgba(255,255,255,.12), transparent 60%),
+      radial-gradient(1200px 600px at 50% 120%, #140d26 0%, transparent 65%);
+    pointer-events:none;
+  }
+  .stars, .stars:before{
     position:absolute; inset:0; content:""; display:block; pointer-events:none;
-    background-repeat:repeat;
+    background-image:
+      radial-gradient(1px 1px at 10% 30%, #fff8 50%, transparent 52%),
+      radial-gradient(1px 1px at 80% 40%, #fff5 50%, transparent 52%),
+      radial-gradient(1px 1px at 45% 70%, #fff7 50%, transparent 52%),
+      radial-gradient(1px 1px at 65% 15%, #fff6 50%, transparent 52%);
+    background-size: 400px 400px, 500px 500px, 600px 600px, 700px 700px;
     animation: twinkle 8s linear infinite;
-    opacity:.8;
+    opacity:.9;
   }
-  .stars{
-    background-image:
-      radial-gradient(2px 2px at 20% 30%, rgba(255,255,255,.7) 50%, transparent 52%),
-      radial-gradient(1px 1px at 70% 60%, rgba(255,255,255,.5) 50%, transparent 52%),
-      radial-gradient(1.5px 1.5px at 40% 80%, rgba(255,255,255,.6) 50%, transparent 52%),
-      radial-gradient(1px 1px at 85% 20%, rgba(255,255,255,.35) 50%, transparent 52%),
-      radial-gradient(1px 1px at 10% 70%, rgba(255,255,255,.35) 50%, transparent 52%);
-    background-size: 500px 500px, 600px 600px, 700px 700px, 800px 800px, 900px 900px;
+  .stars:before{ animation-duration: 13s; opacity:.6 }
+  @keyframes twinkle{ 0%,100%{transform:translateY(0)} 50%{transform:translateY(6px)} }
+
+  .rio{
+    position:absolute; left:0; right:0; bottom:0; height:38vh; pointer-events:none;
+    background:
+      /* mar */
+      linear-gradient(0deg, rgba(28,42,103,.8), rgba(28,42,103,.2) 60%, transparent 60%) bottom/100% 60% no-repeat,
+      /* areia */
+      radial-gradient(80% 100% at 50% 150%, #2a1d49 0%, #1e153a 60%, transparent 61%) bottom/100% 100% no-repeat;
   }
-  .stars:before{
-    animation-duration: 14s;
-    background-image:
-      radial-gradient(1px 1px at 15% 15%, rgba(255,255,255,.35) 50%, transparent 52%),
-      radial-gradient(1.5px 1.5px at 55% 25%, rgba(255,255,255,.45) 50%, transparent 52%),
-      radial-gradient(1px 1px at 75% 75%, rgba(255,255,255,.35) 50%, transparent 52%);
-    background-size: 600px 600px, 800px 800px, 1000px 1000px;
-  }
-  .stars:after{
-    animation-duration: 20s;
-    background-image:
-      radial-gradient(1px 1px at 35% 50%, rgba(255,255,255,.25) 50%, transparent 52%),
-      radial-gradient(1px 1px at 90% 40%, rgba(255,255,255,.25) 50%, transparent 52%);
-    background-size: 700px 700px, 900px 900px;
-  }
-  @keyframes twinkle{
-    0%,100%{transform:translateY(0)}
-    50%{transform:translateY(10px)}
+  .montes{
+    position:absolute; left:0; right:0; bottom:28vh; height:16vh; pointer-events:none;
+    background:
+      radial-gradient(120px 60px at 10% 100%, #1a1435 30%, transparent 31%),
+      radial-gradient(180px 90px at 26% 100%, #191234 30%, transparent 31%),
+      radial-gradient(200px 110px at 44% 100%, #170f33 30%, transparent 31%),
+      radial-gradient(160px 80px at 64% 100%, #1a1336 30%, transparent 31%),
+      radial-gradient(220px 110px at 86% 100%, #1b1438 30%, transparent 31%);
+    filter: blur(1px);
+    opacity:.9;
   }
 
-  /* Personagens (minimalistas) */
-  .lovers{
-    position:absolute; inset:0; display:flex; align-items:flex-end; justify-content:space-between;
-    padding:24px 36px; pointer-events:none;
+  /* TOPO/TÍTULO (número 2 em destaque) */
+  .header{
+    position:absolute; top:14px; left:0; right:0; display:flex; align-items:center; justify-content:center; gap:8px; z-index:5;
   }
-  .lover{
-    width:64px; height:64px; border-radius:16px;
-    background: linear-gradient(#fff,#f3e9ff);
-    box-shadow: 0 8px 24px rgba(255,90,138,.25);
-    position:relative; isolation:isolate;
+  .pill{
+    background:linear-gradient(180deg,var(--rosa),var(--rosa-2));
+    color:white; padding:6px 12px; border-radius:999px; font-weight:700; font-size:14px; box-shadow:0 6px 18px rgba(255,79,146,.35)
   }
-  .lover:before{ /* carinha :) */
-    content:"";
-    position:absolute; left:50%; top:14px; width:36px; height:36px; border-radius:50%;
-    transform:translateX(-50%);
-    background:linear-gradient(#fff,#ffeefd);
-    box-shadow: inset 0 -2px 0 rgba(0,0,0,.04);
-  }
-  .lover:after{ /* coração no peito */
-    content:""; position:absolute; bottom:10px; left:50%; transform:translateX(-50%) rotate(45deg);
-    width:12px; height:12px; background:var(--accent); border-radius:2px;
-    box-shadow:
-      -6px 0 0 0 var(--accent),
-      0 0 12px rgba(255,90,138,.6);
+  .two{
+    width:28px; height:28px; border-radius:8px; display:grid; place-items:center; font-weight:900; background:#fff; color:var(--rosa-2); box-shadow:0 6px 18px rgba(255,255,255,.15)
   }
 
-  /* Frases */
+  /* FRASES */
   .quote-wrap{
-    position:absolute; left:50%; top:8%; transform:translateX(-50%);
-    width:min(92vw, 820px); text-align:center;
-    padding:10px 18px; border-radius:14px;
-    backdrop-filter: blur(2px);
+    position:absolute; left:50%; top:20vh; transform:translateX(-50%);
+    width:min(92vw, 520px); text-align:center; z-index:4;
+    padding:10px 14px; border-radius:16px; backdrop-filter: blur(2px);
   }
   .quote{
-    font-size: clamp(18px, 3vw, 34px);
-    line-height:1.25; letter-spacing:.2px;
-    text-shadow: 0 2px 14px rgba(0,0,0,.35);
-    min-height:2.5em;
+    font-size: clamp(18px,4.6vw,28px);
+    line-height:1.25; letter-spacing:.2px; text-shadow:0 2px 12px #0008; min-height:3.2em;
   }
-  .type{
-    border-right: 2px solid var(--accent2);
-    animation: caret 1s steps(1) infinite;
-  }
+  .type{ border-right:2px solid var(--rosa-3); animation: caret 1s steps(1) infinite }
   @keyframes caret{ 50%{ border-color: transparent } }
 
-  /* Botões */
+  /* BOTÕES (polegar) */
   .controls{
     position:absolute; left:50%; bottom:18px; transform:translateX(-50%);
-    display:flex; gap:10px; z-index:5;
+    display:flex; gap:10px; z-index:6;
   }
   .btn{
-    appearance:none; border:0; border-radius:999px; padding:10px 16px; font-weight:600;
-    background:linear-gradient(180deg, #ff7aa6, #ff5a8a);
-    color:white; cursor:pointer; box-shadow: 0 8px 24px rgba(255,90,138,.35);
+    appearance:none; border:0; border-radius:999px; padding:12px 18px; font-weight:700; font-size:14px;
+    background:linear-gradient(180deg,var(--rosa),var(--rosa-2)); color:white; box-shadow:0 10px 24px rgba(255,79,146,.35); cursor:pointer;
   }
-  .btn.secondary{ background:linear-gradient(180deg, #6d5bd0, #5b43c0) }
+  .btn.alt{ background:linear-gradient(180deg,#6d5bd0,#5840c4) }
 
-  /* Canvas ocupa a tela toda */
-  canvas{position:absolute; inset:0; display:block}
+  /* LÍRIOS VERMELHOS (duas flores) */
+  .lilies{
+    position:absolute; bottom:20vh; left:50%; transform:translateX(-50%); width:260px; height:160px; z-index:3;
+  }
+  .lily{
+    position:absolute; bottom:0; width:120px; height:140px; transform-origin:50% 100%;
+    filter: drop-shadow(0 8px 14px rgba(225,29,72,.35));
+  }
+  .lily.right{ left:50%; transform:translateX(20px) scale(.98) rotate(6deg) }
+  .lily.left{ right:50%; transform:translateX(-20px) scale(.98) rotate(-6deg) }
+  .stem{
+    position:absolute; bottom:0; left:50%; transform:translateX(-50%); width:8px; height:100px; background:linear-gradient(180deg,#14532d,#064e3b); border-radius:8px;
+  }
+  .petal{
+    position:absolute; left:50%; bottom:84px; width:70px; height:40px; transform-origin:10% 60%;
+    background: radial-gradient(80% 140% at 30% 50%, var(--vermelho-2), var(--vermelho));
+    border-radius:60px 60px 8px 60px; box-shadow: inset -4px -6px 12px #0003;
+    opacity:0; transform:translate(-50%,0) rotate(-24deg) scale(.2);
+    animation: bloom .9s ease-out forwards var(--delay);
+  }
+  .petal.p2{ transform-origin:8% 62%; rotate:-6deg }
+  .petal.p3{ transform-origin:12% 58%; rotate:14deg }
+  .center{
+    position:absolute; left:50%; bottom:98px; transform:translateX(-50%); width:20px; height:20px; background: radial-gradient(circle at 40% 40%, #ffd1d9, #ff9fb6); border-radius:50%;
+    opacity:0; animation: fadeIn .6s .6s forwards;
+  }
+  @keyframes bloom{
+    0%{ opacity:0; transform:translate(-50%,0) rotate(var(--rot, -24deg)) scale(.2) }
+    60%{ opacity:1; }
+    100%{ opacity:1; transform:translate(-50%,0) rotate(var(--rot, 0deg)) scale(1) }
+  }
+  @keyframes fadeIn{ to{opacity:1} }
+
+  /* PÉTALAS VOANDO */
+  .petals{
+    position:absolute; inset:0; pointer-events:none; z-index:2;
+  }
+
+  /* GATO PRETO FREDERICO */
+  .cat{
+    position:absolute; bottom:23vh; left:-120px; width:90px; height:48px; z-index:4; animation: walk 22s linear infinite;
+  }
+  .cat-body{
+    position:absolute; left:18px; top:14px; width:56px; height:30px; background:#0b0b0b; border-radius:12px; box-shadow:0 0 0 2px #000 inset;
+  }
+  .cat-head{
+    position:absolute; left:0; top:6px; width:34px; height:34px; background:#0b0b0b; border-radius:50%; box-shadow:0 0 0 2px #000 inset;
+  }
+  .ear{ position:absolute; width:0; height:0; border-left:9px solid transparent; border-right:9px solid transparent; border-bottom:14px solid #0b0b0b; top:-6px }
+  .ear.l{ left:2px } .ear.r{ right:2px }
+  .eye{ position:absolute; top:13px; width:6px; height:6px; background:#fff; border-radius:50%; box-shadow:0 0 6px #fff7 }
+  .eye.l{ left:8px } .eye.r{ left:18px; animation: blink 4s infinite }
+  .tail{ position:absolute; right:-8px; top:6px; width:12px; height:32px; background:#0b0b0b; border-radius:10px; transform-origin:6px 4px; animation: tail 1.4s ease-in-out infinite }
+  .paw{ position:absolute; bottom:0; width:10px; height:12px; background:#0b0b0b; border-radius:3px }
+  .paw.p1{ left:20px; animation: step 0.8s -0.1s infinite }
+  .paw.p2{ left:36px; animation: step 0.8s -0.3s infinite }
+  .paw.p3{ left:52px; animation: step 0.8s -0.5s infinite }
+  .paw.p4{ left:68px; animation: step 0.8s -0.7s infinite }
+
+  @keyframes walk{ from{transform:translateX(-120px)} to{transform:translateX(calc(100vw + 120px))} }
+  @keyframes blink{ 0%,92%,100%{height:6px} 94%{height:1px} 96%{height:6px} }
+  @keyframes tail{ 0%,100%{ transform:rotate(10deg) } 50%{ transform:rotate(-14deg) } }
+  @keyframes step{ 0%,100%{ transform:translateY(0) } 50%{ transform:translateY(3px) } }
+
+  /* DICA DE TOQUE */
+  .hint{
+    position:absolute; bottom:11.5vh; left:50%; transform:translateX(-50%); font-size:12px; opacity:.8
+  }
 </style>
 </head>
 <body>
-  <div class="stars"></div>
-  <canvas id="scene"></canvas>
+  <div class="sky">
+    <div class="stars"></div>
+  </div>
+
+  <div class="header">
+    <div class="pill">Capítulo</div>
+    <div class="two">2</div>
+    <div class="pill">de nós</div>
+  </div>
 
   <div class="quote-wrap">
     <div id="quote" class="quote"></div>
   </div>
 
-  <div class="lovers">
-    <div class="lover" aria-hidden="true"></div>
-    <div class="lover" aria-hidden="true"></div>
+  <div class="lilies">
+    <!-- esquerda -->
+    <div class="lily left">
+      <div class="stem"></div>
+      <div class="petal p1" style="--delay:.05s; --rot:-18deg"></div>
+      <div class="petal p2" style="--delay:.12s; --rot:0deg"></div>
+      <div class="petal p3" style="--delay:.22s; --rot:16deg"></div>
+      <div class="center"></div>
+    </div>
+    <!-- direita -->
+    <div class="lily right">
+      <div class="stem"></div>
+      <div class="petal p1" style="--delay:.15s; --rot:-18deg"></div>
+      <div class="petal p2" style="--delay:.25s; --rot:0deg"></div>
+      <div class="petal p3" style="--delay:.35s; --rot:16deg"></div>
+      <div class="center"></div>
+    </div>
   </div>
+
+  <div class="petals"><canvas id="petals"></canvas></div>
+
+  <div class="cat" aria-label="Frederico, o gato preto">
+    <div class="cat-head">
+      <div class="ear l"></div><div class="ear r"></div>
+      <div class="eye l"></div><div class="eye r"></div>
+    </div>
+    <div class="cat-body"></div>
+    <div class="tail"></div>
+    <div class="paw p1"></div><div class="paw p2"></div><div class="paw p3"></div><div class="paw p4"></div>
+  </div>
+
+  <div class="montes"></div>
+  <div class="rio"></div>
 
   <div class="controls">
-    <button id="next" class="btn">Outra frase</button>
-    <button id="toggle" class="btn secondary">Pausar corações</button>
+    <button id="prev" class="btn alt">◀︎</button>
+    <button id="next" class="btn">Próxima</button>
   </div>
+  <div class="hint">Toque na tela ou use os botões</div>
 
 <script>
-/* ======= FRASES ======= */
+/* ====== FRASES PERSONALIZADAS (edite se quiser) ====== */
 const frases = [
-  "Você é o meu lugar favorito no mundo.",
-  "Cada batida do meu coração soletra o seu nome.",
-  "Entre todas as estrelas, escolhi brilhar ao seu lado.",
-  "Seu sorriso é o meu nascer do sol diário.",
-  "Se amar é viajar, com você eu escolhi morar.",
-  "Te encontrar foi como ouvir minha música preferida pela primeira vez."
+  "Você é 2 em tudo: dois olhos que brilham, dois passos que me guiam — e o nosso capítulo 2 começa aqui.",
+  "Seu charme tem uma dobra no nariz e um mundo inteiro no sorriso.",
+  "Cafuné na nuca até quase dormir? Eu topo ser seu travesseiro favorito.",
+  "Prometo carinho nas costas, respeito no coração e leveza na alma.",
+  "Um jantar de sushi, você escolhendo os 2 primeiros — e eu só tentando não me apaixonar de novo (falhei).",
+  "Na praia do Rio, deixo as ondas contarem: 1… 2… eu e você.",
+  "Se a vida for série romântica, quero maratonar ao seu lado (com pausas pra anime).",
+  "Frederico aprovaria: amo quem você é quando abraça seu gatinho preto.",
+  "Você é forte e frágil do jeitinho mais raro — eu prometo ser abrigo, não armadura.",
+  "Sonho com 3 futuros sorrindo na sala: 2 meninos e 1 menina correndo pra você.",
+  "Quando o mundo pesa, te levo pra ler na areia, olhar o mar e respirar a paz.",
+  "Os lírios vermelhos lembram você: intensa, delicada e impossível de esquecer.",
+  "Gosto de sair com você porque é onde sou casa.",
+  "Se eu puder escolher, escolho nós — de novo e de novo. 2 vezes? Mil."
 ];
 
-/* ======= TYPEWRITER ======= */
+/* ====== TYPEWRITER ====== */
 const quoteEl = document.getElementById("quote");
-let fraseIndex = 0, typing = false, timerFrase;
-
-function typeFrase(texto, i=0){
+let idx = 0, typing = false, hold;
+function type(text, i=0){
   typing = true;
   quoteEl.classList.add("type");
-  quoteEl.textContent = texto.slice(0, i);
-  if(i < texto.length){
-    const jitter = 15 + Math.random()*35;
-    setTimeout(()=>typeFrase(texto, i+1), jitter);
+  quoteEl.textContent = text.slice(0,i);
+  if(i < text.length){
+    setTimeout(()=>type(text, i+1), 20 + Math.random()*35);
   }else{
     typing = false;
     quoteEl.classList.remove("type");
-    timerFrase = setTimeout(nextFrase, 3500);
+    hold = setTimeout(next, 3800);
   }
 }
-function nextFrase(){
-  clearTimeout(timerFrase);
-  fraseIndex = (fraseIndex + 1) % frases.length;
-  typeFrase(frases[fraseIndex]);
-}
-typeFrase(frases[fraseIndex]);
+function next(){ clearTimeout(hold); idx = (idx+1)%frases.length; type(frases[idx]); }
+function prev(){ clearTimeout(hold); idx = (idx-1+frases.length)%frases.length; type(frases[idx]); }
+type(frases[idx]);
 
-document.getElementById("next").addEventListener("click", ()=>{
-  if(typing) return;
-  nextFrase();
+document.getElementById("next").addEventListener("click", ()=>{ if(!typing) next(); });
+document.getElementById("prev").addEventListener("click", ()=>{ if(!typing) prev(); });
+document.body.addEventListener("click", (e)=>{
+  // evita click em botões
+  if(e.target.closest(".btn")) return;
+  if(!typing) next();
 });
 
-/* ======= CENÁRIO DE CORAÇÕES (Canvas) ======= */
-const canvas = document.getElementById("scene");
-const ctx = canvas.getContext("2d", { alpha: true });
+/* ====== PÉTALAS VOANDO (Canvas de baixo custo) ====== */
+const cvs = document.getElementById("petals");
+const ctx = cvs.getContext("2d", { alpha:true });
 
 function resize(){
-  const dpr = Math.min(window.devicePixelRatio || 1, 2);
-  canvas.width = Math.floor(innerWidth * dpr);
-  canvas.height = Math.floor(innerHeight * dpr);
+  const dpr = Math.min(devicePixelRatio||1, 2);
+  cvs.width = Math.floor(innerWidth*dpr);
+  cvs.height = Math.floor(innerHeight*dpr);
   ctx.setTransform(dpr,0,0,dpr,0,0);
 }
-addEventListener("resize", resize, { passive:true });
-resize();
+addEventListener("resize", resize, { passive:true }); resize();
 
-function drawHeart(x,y,size,alpha=1,rot=0){
-  ctx.save();
-  ctx.translate(x,y);
-  ctx.rotate(rot);
-  ctx.scale(size,size);
-  ctx.globalAlpha = alpha;
-  ctx.fillStyle = "#ff5a8a";
+function heartPetal(x,y,size,rot,alpha){
+  ctx.save(); ctx.translate(x,y); ctx.rotate(rot); ctx.globalAlpha = alpha;
+  const w = size, h = size*.7;
+  const grd = ctx.createLinearGradient(0,-h,0,h);
+  grd.addColorStop(0,"#fb7185"); grd.addColorStop(1,"#e11d48");
+  ctx.fillStyle = grd;
   ctx.beginPath();
-  // Coração a partir de dois círculos + triângulo curvo
   ctx.moveTo(0, 0);
-  ctx.bezierCurveTo(0, -3, -3, -3, -3, 0);
-  ctx.bezierCurveTo(-3, 2.5, -1.5, 3.4, 0, 5);
-  ctx.bezierCurveTo(1.5, 3.4, 3, 2.5, 3, 0);
-  ctx.bezierCurveTo(3, -3, 0, -3, 0, 0);
-  ctx.closePath();
-  ctx.fill();
-  ctx.restore();
+  ctx.bezierCurveTo(-w*0.5, -h*0.9, -w*1.0, -h*0.2, -w*0.6, h*0.1);
+  ctx.bezierCurveTo(-w*0.1, h*0.7,  w*0.1, h*0.7,  w*0.6, h*0.1);
+  ctx.bezierCurveTo( w*1.0, -h*0.2,  w*0.5, -h*0.9,  0, 0);
+  ctx.closePath(); ctx.fill(); ctx.restore();
 }
 
-class Particle{
-  constructor(x,y,vx,vy,life,size,spin=0){
-    this.x=x; this.y=y; this.vx=vx; this.vy=vy;
-    this.life=life; this.max=life; this.size=size; this.spin=spin;
-  }
-  step(dt){
-    this.life -= dt;
-    this.x += this.vx*dt; this.y += this.vy*dt;
-    this.vx *= 0.995; // leve arrasto
-    this.vy += 10*dt; // gravidade suave
-    this.spin += 2*dt;
-  }
-  draw(){
-    const a = Math.max(this.life/this.max,0);
-    drawHeart(this.x, this.y, this.size*(0.6+a*0.8), a, this.spin);
-  }
-}
-
-class Bullet{
-  constructor(side){
-    const pad = 60;
-    this.side = side; // "left" | "right"
-    this.y = canvas.height/2 / (window.devicePixelRatio||1);
-    this.x = side==="left" ? pad : innerWidth - pad;
-    const targetX = innerWidth/2 + (Math.random()*40-20);
-    const targetY = innerHeight*0.35 + (Math.random()*40-20);
-    const dx = targetX - this.x;
-    const dy = targetY - this.y;
-    const len = Math.hypot(dx,dy);
-    const speed = 280 + Math.random()*40;
-    this.vx = dx/len*speed;
-    this.vy = dy/len*speed;
-    this.alive = true;
-  }
-  step(dt){
-    this.x += this.vx*dt;
-    this.y += this.vy*dt;
-    // trilha de mini corações
-    particles.push(new Particle(this.x, this.y, 0, 0, 0.7, 0.9, Math.random()*3));
-    // encontro no centro -> explosão
-    if( (this.side==="left" && this.x >= innerWidth/2) ||
-        (this.side==="right" && this.x <= innerWidth/2)){
-      this.alive = false;
-      burst(this.x, this.y);
-    }
-  }
-  draw(){
-    drawHeart(this.x, this.y, 1.6, 1, 0);
-  }
-}
-
-const particles = [];
-let bullets = [];
-let running = true;
-let acc = 0;
-
-function burst(x,y){
-  const n = 60;
-  for(let i=0;i<n;i++){
-    const ang = (i/n)*Math.PI*2 + Math.random()*0.3;
-    const sp = 90 + Math.random()*120;
-    const vx = Math.cos(ang)*sp;
-    const vy = Math.sin(ang)*sp - 40;
-    particles.push(new Particle(x,y,vx,vy, 1+Math.random()*1.2, 1+Math.random()*0.8, Math.random()*6));
-  }
-  // desenha um coração maior que se desfaz
-  for(let i=0;i<22;i++){
-    const a = (i/22)*Math.PI*2;
-    const r = 26;
-    const px = x + r*16*Math.pow(Math.sin(a),3)/18;
-    const py = y - r*(13*Math.cos(a)-5*Math.cos(2*a)-2*Math.cos(3*a)-Math.cos(4*a))/18;
-    const jitter = (Math.random()*2-1);
-    particles.push(new Particle(px+jitter,py+jitter, (Math.random()*40-20), (Math.random()*40-20)-20, 1.4, 0.9, Math.random()*6));
-  }
-}
-
-function shootPair(){
-  bullets.push(new Bullet("left"));
-  bullets.push(new Bullet("right"));
+const P = [];
+for(let i=0;i<36;i++){
+  P.push({
+    x: Math.random()*innerWidth,
+    y: innerHeight*0.4 + Math.random()*innerHeight*0.6,
+    vx: -10 + Math.random()*20,
+    vy: -10 - Math.random()*20,
+    rot: Math.random()*6.28,
+    vr: (-.5 + Math.random())*0.6,
+    sz: 10 + Math.random()*18,
+    a: .6 + Math.random()*.4,
+  });
 }
 
 let last = performance.now();
 function tick(t){
-  const dt = Math.min((t-last)/1000, 0.033); last=t;
-  if(running){
-    acc += dt;
-    if(acc > 2.6){ // intervalo entre encontros
-      shootPair();
-      acc = 0;
-    }
-  }
-
+  const dt = Math.min((t-last)/1000, .033); last=t;
   ctx.clearRect(0,0,innerWidth,innerHeight);
-
-  // atualizar/desenhar balas
-  bullets = bullets.filter(b=>b.alive);
-  for(const b of bullets){ b.step(dt); b.draw(); }
-
-  // atualizar/desenhar partículas
-  for(let i=particles.length-1;i>=0;i--){
-    const p = particles[i];
-    p.step(dt);
-    p.draw();
-    if(p.life<=0 || p.y>innerHeight+80) particles.splice(i,1);
+  for(const p of P){
+    p.x += p.vx*dt; p.y += p.vy*dt; p.vy += 8*dt; p.rot += p.vr*dt;
+    if(p.y>innerHeight+40){ p.y = innerHeight*0.45; p.x = Math.random()*innerWidth; p.vy = -40 - Math.random()*30; }
+    heartPetal(p.x,p.y,p.sz,p.rot,p.a);
   }
   requestAnimationFrame(tick);
 }
 requestAnimationFrame(tick);
-
-document.getElementById("toggle").addEventListener("click", (e)=>{
-  running = !running;
-  e.currentTarget.textContent = running ? "Pausar corações" : "Retomar corações";
-});
-
-// clique solta um disparo especial no ponto
-canvas.addEventListener("click", (ev)=>{
-  const rect = canvas.getBoundingClientRect();
-  const x = ev.clientX - rect.left;
-  const y = ev.clientY - rect.top;
-  burst(x,y);
-});
 </script>
 </body>
 </html>
