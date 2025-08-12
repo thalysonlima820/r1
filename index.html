@@ -321,17 +321,17 @@
         .cat {
             position: absolute;
             bottom: 23vh;
-            left: -120px;
+            left:-120px;   
             width: 90px;
-            height: 48px;
+            height: 56px;
             z-index: 4;
             animation: walk 22s linear infinite;
         }
 
         .cat-body {
             position: absolute;
-            left: 18px;
-            top: 14px;
+            left: 30px;
+            top: 18px;
             width: 56px;
             height: 30px;
             background: #0b0b0b;
@@ -341,14 +341,16 @@
 
         .cat-head {
             position: absolute;
-            left: 0;
-            top: 6px;
-            width: 34px;
-            height: 34px;
+            left: 8px;
+            top: 2px;
+            width: 36px;
+            height: 36px;
             background: #0b0b0b;
             border-radius: 50%;
             box-shadow: 0 0 0 2px #000 inset;
+            z-index: 3;
         }
+
 
         .ear {
             position: absolute;
@@ -379,7 +381,7 @@
         }
 
         .eye.l {
-            left: 8px
+            left: 10px
         }
 
         .eye.r {
@@ -389,14 +391,15 @@
 
         .tail {
             position: absolute;
-            right: -8px;
-            top: 6px;
-            width: 12px;
-            height: 32px;
+            right: -3px;
+            top: 17px;
+            width: 10px;
+            height: 28px;
             background: #0b0b0b;
             border-radius: 10px;
-            transform-origin: 6px 4px;
-            animation: tail 1.4s ease-in-out infinite
+            transform-origin: 3px 6px;
+            animation: tail 1.4s ease-in-out infinite;
+            z-index: 1;
         }
 
         .paw {
@@ -409,34 +412,29 @@
         }
 
         .paw.p1 {
-            left: 20px;
-            animation: step 0.8s -0.1s infinite
+            left: 32px;
+            animation: step .8s -.1s infinite
         }
 
         .paw.p2 {
-            left: 36px;
-            animation: step 0.8s -0.3s infinite
+            left: 46px;
+            animation: step .8s -.3s infinite
         }
 
         .paw.p3 {
-            left: 52px;
-            animation: step 0.8s -0.5s infinite
+            left: 60px;
+            animation: step .8s -.5s infinite
         }
 
         .paw.p4 {
-            left: 68px;
-            animation: step 0.8s -0.7s infinite
+            left: 74px;
+            animation: step .8s -.7s infinite
         }
 
         @keyframes walk {
-            from {
-                transform: translateX(-120px)
-            }
-
-            to {
-                transform: translateX(calc(100vw + 120px))
-            }
-        }
+            from{ transform: scaleX(-1) translateX(120px); }
+  to  { transform: scaleX(-1) translateX(calc(-100vw - 120px)); }
+}
 
         @keyframes blink {
 
